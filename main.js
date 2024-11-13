@@ -26,7 +26,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambildaftarmember() {
-  const refDokumen = collection(db, "laundry");
+  const refDokumen = collection(db, "member");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
 
@@ -49,7 +49,7 @@ export function formatAngka(x) {
 
 export async function tambahmember(nama, alamat, nohp) {
   try {
-    const dokRef = await addDoc(collection(db, 'laundry'), {
+    const dokRef = await addDoc(collection(db, 'member'), {
 
       nama: nama,
       alamat: alamat,
@@ -61,19 +61,8 @@ export async function tambahmember(nama, alamat, nohp) {
   }
 }
 
-export async function hapusdatamember(docid) {
-  await deleteDoc(doc(db, "laundry", docid));
-}
-export async function ubahadatamember(docId, nama, alamat, nohp) {
-  await updateDoc(doc(db, "laundry", docId), {
-    nama: nama,
-    alamat: alamat,
-    nohp: nohp,
-  });
-}
-
 export async function ambildatamember(docId) {
-  const docRef = await doc(db, "datamember", docId);
+  const docRef = await doc(db, "member", docId);
   const docSnap = await getDoc(docRef);
 
   return await docSnap.data();
