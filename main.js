@@ -53,7 +53,7 @@ export async function tambahmember(nama, alamat, nohp) {
 
       nama: nama,
       alamat: alamat,
-      nohp: nohp,
+      nohp: nohp
     });
     console.log('Berhasil menambah datamember ' + dokRef.id);
   } catch (e) {
