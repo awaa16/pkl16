@@ -68,3 +68,13 @@ export async function ambildatamember(docId) {
   return await docSnap.data();
 }
 
+export async function hapusProduk(docid) {
+  await deleteDoc(doc(db, "member", docid));
+}
+export async function ubahProduk(docId, nama, alamat, handphone) {
+  await updateDoc(doc(db, "member", docId), {
+    nama: nama,
+    harga:alamat,
+    stok: handphone,
+  });
+}
