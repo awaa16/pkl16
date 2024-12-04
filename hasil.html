@@ -62,7 +62,7 @@
       $('.tombol-hapus').click(async function() {
         $(this).attr('disabled', 'disabled');
         $('#' + $(this).attr('data')).show();
-        await hapusdatamember($(this).attr('data'));
+        await hapusmember($(this).attr('data'));
         location.reload();
       });
       $('.link-ubah').click(async function() {
