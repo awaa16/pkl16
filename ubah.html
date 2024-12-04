@@ -26,7 +26,7 @@
     </div>
     <div class="mb-3">
       <label class="form-label">no handphone</label>
-      <input type="text" class="form-control" id="input-noTlpn">
+      <input type="text" class="form-control" id="input-nohp">
     </div>
     <button type="submit" class="btn btn-primary" id="tombol-ubah">Ubah</button>
   </form>
@@ -36,25 +36,25 @@
 </div>
 
   <script type="module">
-    import { ambildaftarmember, ubahdaftarmember} from './main.js';
+    import { ambimember, ubahdaftarmember} from './main.js';
 
     let tombolUbah = document.getElementById('tombol-ubah');
-    let elemenNamamember= document.getElementById('input-namamember');
-    let elemenAlamatmember= document.getElementById('input-alamaember');
-    let elemennohandphone= document.getElementById('input-nohandphone');
+    let elemenNamamember= document.getElementById('input-nama');
+    let elemenAlamatmember= document.getElementById('input-alamat');
+    let elemennohandphone= document.getElementById('input-nohp');
     const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
-    const produk = await ambildaftarmember(docId);
+    const member = await ambilmember(docId);
 
-    elemenNamamember.value = member.nama;
-    elemenAlamatmember.value = member.harga;
-    elemennohandphone.value =member.nohandphone;
+    elemenNama.value = member.nama;
+    elemenAlamat.value = member.alamat
+    elemeNohp.value =member.nohp;
 
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahProduk(docId, elemenNamamember.value, elemenAlamatmember.value, elemennohandphone.value);
+      await ubahmember(docId, elemenNama.value, elemenAlamat.value, elemeNohp.value);
       window.location.href = 'hasil.html';
     });
   </script>

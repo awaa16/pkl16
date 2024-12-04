@@ -72,3 +72,10 @@ export async function ubahProduk(docId, nama, alamat, nohp) {
     nohp: nohp,
   });
 }
+
+export async function ambilmember(docId) {
+  const docRef = await doc(db, "member", docId);
+  const docSnap = await getDoc(docRef);
+
+  return await docSnap.data();
+}
