@@ -36,7 +36,7 @@ export async function ambildaftarmember() {
       id: dok.id,
       nama: dok.data().nama,
       alamat: dok.data().alamat,
-      nohp: dok.data().nohp,
+      handphone: dok.data().handphone,
     });
   });
 
@@ -74,7 +74,7 @@ export async function hapusProduk(docid) {
 export async function ubahProduk(docId, nama, alamat, handphone) {
   await updateDoc(doc(db, "member", docId), {
     nama: nama,
-    harga:alamat,
-    stok: handphone,
+    alamat:alamat,
+    nohandphone: nohandphone,
   });
 }
