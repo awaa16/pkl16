@@ -36,7 +36,7 @@ export async function ambildaftarmember() {
       id: dok.id,
       nama: dok.data().nama,
       alamat: dok.data().alamat,
-      handphone: dok.data().handphone,
+      handphone: dok.data().nohp,
     });
   });
 
@@ -53,7 +53,7 @@ export async function tambahmember(nama, alamat, nohp) {
 
       nama: nama,
       alamat: alamat,
-      nohp: nohp
+      nohp: nohp,
     });
     console.log('Berhasil menambah datamember ' + dokRef.id);
   } catch (e) {
@@ -61,20 +61,14 @@ export async function tambahmember(nama, alamat, nohp) {
   }
 }
 
-export async function ambildatamember(docId) {
-  const docRef = await doc(db, "member", docId);
-  const docSnap = await getDoc(docRef);
 
-  return await docSnap.data();
-}
-
-export async function hapusProduk(docid) {
+export async function hapusmember(docid) {
   await deleteDoc(doc(db, "member", docid));
 }
-export async function ubahProduk(docId, nama, alamat, handphone) {
+export async function ubahProduk(docId, nama, alamat, nohp) {
   await updateDoc(doc(db, "member", docId), {
     nama: nama,
     alamat:alamat,
-    nohandphone: nohandphone,
+    nohandphone: nohp,
   });
 }

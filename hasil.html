@@ -14,7 +14,7 @@
 <body class="m-3">
   <h1>Daftar data member laundry</h1>
 
-  <table class="table" id="daftar-produk">
+  <table class="table" id="daftar-member">
     <thead>
       <tr>
         <th scope="col">No</th>
@@ -32,11 +32,11 @@
   <a href="hasil.html">Tambah Data member</a>
 
   <script type="module">
-    import { ambilDaftarmember, formatAngka, hapusdatamember } from './main.js';
+    import { ambildaftarmember, formatAngka, hapusmember } from './main.js';
 
     $(document).ready(async function() {
-      let elemenDaftar = $("#daftar-produk > tbody");
-      let daftaember = await ambilDaftarmember();
+      let elemenDaftar = $("#daftar-member > tbody");
+      let daftarmember = await ambildaftarmember();
       let nomor = 1;
 
       daftarmember.forEach((data) => {
@@ -44,8 +44,8 @@
           '<tr>' +
           '<th>' + nomor + '</th>' +
           '<td>' + data.nama + '</td>' +
-          '<td>' + formatAngka(data.alamatmember) + '</td>' +
-          '<td>' + data.nohandphone + '</td>' +
+          '<td>' + data.alamat + '</td>' +
+          '<td>' + data.nohp + '</td>' +
           '<td>' + '<button class="btn btn-danger tombol-hapus" data>' + '<td class="stack-up">' +
           ' <a href="#" class="btn btn-warning link-ubah"  data="' +
           data.id +
