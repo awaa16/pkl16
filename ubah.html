@@ -36,12 +36,12 @@
 </div>
 
   <script type="module">
-    import { ambimember, ubahdaftarmember} from './main.js';
-
+    import { ambilmember, ubahProduk} from './main.js';
+    
     let tombolUbah = document.getElementById('tombol-ubah');
-    let elemenNamamember= document.getElementById('input-nama');
-    let elemenAlamatmember= document.getElementById('input-alamat');
-    let elemennohandphone= document.getElementById('input-nohp');
+    let elemenNama= document.getElementById('input-nama');
+    let elemenAlamat= document.getElementById('input-alamat');
+    let elemenNohp= document.getElementById('input-nohp');
     const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
@@ -54,7 +54,7 @@
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahmember(docId, elemenNama.value, elemenAlamat.value, elemeNohp.value);
+      await ubahProduk(docId, elemenNama.value, elemenAlamat.value, elemeNohp.value);
       window.location.href = 'hasil.html';
     });
   </script>
