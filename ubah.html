@@ -49,12 +49,12 @@
 
     elemenNama.value = member.nama;
     elemenAlamat.value = member.alamat
-    elemeNohp.value =member.nohp;
+    elemenNohp.value =member.nohp;
 
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahProduk(docId, elemenNama.value, elemenAlamat.value, elemeNohp.value);
+      await ubahProduk(docId, elemenNama.value, elemenAlamat.value, elemenNohp.value);
       window.location.href = 'hasil.html';
     });
   </script>
